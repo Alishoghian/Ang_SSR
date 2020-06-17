@@ -1,0 +1,65 @@
+
+<ul class="nav row text-white" *ngIf="media!='xs' && media!='sm'">
+    <li *ngFor="let item of items" class="nav-item nav-li">
+        <div  class="nav-item-title" >
+            <span class="title"> <i class="fa fa-{{item.data.icon}}"></i>  {{item.data.title}}</span>
+            <span class="line-outlet"></span>
+        </div>
+        <ul class="li-menu column " *ngIf="item?.children && item?.children.length>0">
+            <!-- <div class="column" style="padding: 8px;"> -->
+              <li class="list-nav-item row" *ngFor="let itemChild of item.children" dir="rtl" [attr.child]="itemChild?.children.length>0 ? 'has':'null'">
+                    <div  class=" nav-item-title col-2 bg-secondary" >
+                        <span class="title col-10"> <i class="fa fa-{{itemChild.data.icon}}"></i>  {{itemChild.data.title}}</span>
+                        <i class="fa fa-chevron-left"  *ngIf="itemChild?.children && itemChild?.children.length>0"></i>
+                    </div>
+                    <ul class="col-10 ul-list bg-secondary"  *ngIf="itemChild?.children && itemChild?.children.length>0">
+                        <div class="scroll list-items">
+                            <li  *ngFor="let listItems of itemChild.children" >
+                                <div class="list-title">
+                                    <span class="row title"> <i class="fa fa-{{listItems.data.icon}}"></i>  {{listItems.data.title}}</span>
+                                     <i class="fa fa-chevron-down"></i>
+                                </div>
+                                <ul>
+                                    <li   *ngFor="let list of listItems.children">
+                                        <a> {{list?.data?.title}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+            <!-- </div> -->
+            
+        </ul>
+    </li>
+</ul>
+<ul class="nav column text-white" *ngIf="media=='xs' || media=='sm'">
+    <li *ngFor="let item of items ; let i = index" [id]="item.id" class="nav-first-child col-12 xs-nav-item" [attr.childlength]="item?.children.length">
+        <div  class="row item"  (click)="viewItems($event,item.id,'40px','22px')">
+            <span class="row col-10 p-0 item-center"> <i class="fa fa-{{item.data.icon}} item-icon"></i>  {{item.data.title}}</span>
+            <i *ngIf="item?.children && item?.children.length>0" class="fa fa-chevron-up col-2 p-0 chevron"></i>
+        </div>
+        <ul class="xs-li-menu column p-0 ul-remove-active" *ngIf="item?.children && item?.children.length>0">
+              <li class="nav-second-child row" *ngFor="let itemChild of item.children ; let i = index" [id]="itemChild.id">
+                    <div  class="col-12 item"  (click)="viewItems($event,itemChild.id,'30px','15px')">
+                        <span class="row col-10 p-0 item-center"> <i class="fa fa-{{itemChild.data.icon}}  item-icon"></i>  {{itemChild.data.title}}</span>
+                        <i *ngIf="item?.children && item?.children.length>0" class="fa fa-chevron-up col-2 p-0 chevron"></i>
+                    </div>
+                     <ul  *ngIf="item?.children && item?.children.length>0" class="column xs-list ul-remove-active" >
+                            <li  class="nav-third-child row"  *ngFor="let listItems of itemChild.children; let i = index" [id]="listItems.id" >
+                                <div class="col-12 item" (click)="viewItems($event,listItems.id,'30px','6px')">
+                                    <span class="title"> <i class="fa fa-{{listItems.data.icon}}"></i>  {{listItems.data.title}}</span>
+                                     <i  *ngIf="item?.children && item?.children.length>0" class="fa fa-chevron-up col-2 p-0 chevron"></i>
+                                </div>
+                                 <ul class="column xs-item ul-remove-active">
+                                    <li   *ngFor="let list of listItems.children">
+                                        <a> {{list?.data?.title}}</a>
+                                    </li>
+                                </ul> 
+                            </li>
+                    </ul> 
+                </li>
+            
+        </ul> 
+    </li>
+</ul>

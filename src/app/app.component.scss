@@ -1,0 +1,297 @@
+@import './respancive.scss';
+.header{
+    width: 100%;    
+    padding: 0 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #0000005e;
+
+}
+.hea-sectio{
+    width: 100%;
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    
+    @include xs{
+        height: 80px;
+        margin-top: 8px;
+    }
+    @include sm{
+        height: 80px;
+        margin-top: 8px;
+    }
+    .headbar{ 
+        .logo{    
+            @include xs{
+                height: 35px;
+                justify-content: space-between;
+            }
+            @include sm{
+                height: 35px;
+                justify-content: space-between;
+            }
+                height: 100%;
+                justify-items: start;
+                display: flex;
+                min-width: 80px;
+                a{
+                    max-width: 50px;
+                }
+                img{
+                    max-height: 70px;
+                    max-width: 50px;
+
+                }
+            }
+        width: 100%;
+        max-height: 70px;
+        min-height: 70px;
+        margin: auto;
+        @include xs{
+            margin: 0;
+            min-height: 100%;
+        }
+        @include sm{
+            margin: 0;
+            min-height: 100%;
+        }
+        div{
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-search-logo{
+           justify-content: space-between;
+           display: flex;
+           flex-direction: row;
+           @include xs{
+               height: 36%;
+           }
+           @include sm{
+            height: 36%;
+        }
+            .form-group{
+                background-color: rgba(198, 198, 198, 0.25);
+                padding-inline-start: 8px;
+                display: flex;
+                align-items: center;
+                margin: 0;
+                @include xs{
+                    height: 100%;
+                }
+                @include sm{
+                    height: 100%;
+                }
+                // @
+                label{margin: 0;}
+                input{
+                    width: 100%;
+                    border: none !important;
+                    padding: 0 8px;
+                    height: 100%;
+                    background:none;
+                }
+                
+            }
+        }
+        .cart{  
+            display: flex;
+            justify-content: flex-end !important;
+            button{
+                padding: 0;
+                padding: 2px 4px;
+                transition: all 0.5s;
+                max-width: 38px;
+                &:hover{
+                    background-color: rgb(78, 78, 78);
+                    color: #fff;
+                }
+            } 
+            //  display: flex;
+            // width: 120px;
+            // flex-direction: row;
+            // height: 100%;
+            // align-items: center;
+            .slice{    
+                margin: 0 4px;
+                width: 1px;
+                height: 15px;
+                background-color: rgba(151, 151, 151, 0.84);;
+            }
+            .cart-badeg {
+                display: flex;
+                .my-badge {
+                    transform: translate3d(38px, -15px, 0px);
+                    border-radius: 50%;
+                    padding: 3px 3px;
+                    color: rgb(0, 0, 0);
+                    line-height: 1;
+                    min-width: 20px;
+                }
+            }
+        }
+    }
+} 
+.ovely-none{
+    width: 100%;
+    height: 100%;   
+    background: rgba(0, 0, 0, 0.48);
+    z-index: 16;
+    position: fixed;
+    top:88px;
+    transform-origin: right;
+    transform:scaleX(0);
+
+}
+.overly{
+    animation-name: OverlyOut;
+    // animation-delay: 0.8s;
+    animation-duration: 1s;
+    transform:scaleX(0);
+    // opacity: 0;
+}
+.overly-active{
+    animation-name: OverlyIn;
+    animation-duration: 0.5s;
+    transform:scaleX(1);
+    opacity: 1;
+
+}
+@keyframes OverlyIn{
+    0%{
+        transform:scaleX(0);
+        opacity:0;
+    }
+    100%{
+        transform:scaleX(1);
+        opacity: 1;
+    }
+}
+@keyframes OverlyOut{
+    0%{
+        transform:scaleX(1);
+        opacity: 1;
+    }
+    40%{
+        transform:scaleX(1);
+        opacity: 1;
+    }
+    100%{
+        transform:scaleX(0);
+        opacity: 0;
+    }
+}
+.nav{
+    width: 100%;
+    max-height: 45px;
+    padding: 8px 8px 0 8px;
+}
+.sidenav{
+    min-width: 250px;
+    max-width: 250px;
+    height: calc(100vh - 90px);
+    max-height: calc(100vh - 90px);
+    position: absolute;
+    right: 0;
+    top: 88px;
+    z-index: 20;
+    transform-origin: right;
+    transform: scaleX(0) ;
+    opacity: 0;
+
+}
+.sidnav{
+    transform-origin: right;
+    animation-name: sideOut;
+    animation-duration: 1s;
+}
+.sidenav-active{
+    animation-name: sideOver;
+    animation-duration: 1s;
+    transform-origin: right;
+    transform: scaleX(1) ;
+    opacity: 1;
+
+}
+@keyframes sideOver{
+    0%{
+        transform: scaleX(0) ;
+        opacity: 0;
+    }
+    70%{
+
+        transform: scaleX(1.2) ;
+        opacity: 0.7;
+    }
+    100%{
+
+        transform: scaleX(1) ;
+        opacity: 1;
+    }
+}
+@keyframes sideOut{
+    0%{
+        transform: scaleX(1) ;
+        opacity: 1;
+    }
+    50%{
+
+        transform: scaleX(1.2) ;
+        opacity: 0.7;
+    }
+    100%{
+
+        transform: scaleX(0) ;
+        opacity: 0;
+    }
+}
+.dis-none{
+    display: block;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none !important; 
+    box-shadow: none;
+  }
+.main{
+    height: auto;
+    max-height: calc(100% - 115px);
+    width: 100%;
+    overflow: hidden;
+    @include xs{
+        max-height: calc(100% - 88px);
+
+    }
+    @include sm{
+        max-height: calc(100% - 88px);
+
+    }
+}
+.scroll {
+    overflow: auto;
+    transition: all 0.5s;
+    scrollbar-color: auto;
+    scrollbar-width:thin;
+    overflow: auto;
+ }
+ .scroll::-webkit-scrollbar  {
+     width: 7px;
+ }
+ 
+ .scroll::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+     border-radius: 6px;
+ }
+ 
+ .scroll::-webkit-scrollbar-thumb {
+     border-radius: 6px;
+     box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+     &:hover{
+         cursor: pointer;
+         box-shadow: inset 0 0 6px rgba(85, 85, 85, 0.801); 
+     }
+ }
+
+ footer .main-footer{	padding: 20px 0;	background: #252525;}

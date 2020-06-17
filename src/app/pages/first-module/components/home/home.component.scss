@@ -1,0 +1,216 @@
+@import '../../../../respancive.scss';
+.carousel{
+    height:  calc(100vh - 125px);
+    @include xs{
+        height:  calc(100vh - 98px);
+    }
+    @include sm{
+        height:  calc(100vh - 98px);
+    }
+    
+}
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    .carousel-item{
+        max-height: calc(100% - 5px)!important;
+        height: calc(100% - 5px)!important;
+        .img-cover{
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100% !important;
+        }
+        img{
+            height:auto;
+            width: 100%;
+        }
+    }
+    
+}
+.marketing{
+    width: 100%;
+    padding: 8px 1rem;
+    @include xs{
+        padding: 8px; 
+    }
+}
+.items{
+    margin: 0;
+}
+.flex{
+    display: flex;
+    padding: 8px;
+    @include xs{
+        padding: 8px 0;
+    }
+}
+.item{
+    max-height: 400px;
+    min-height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    .img{
+        width: 100%;
+        height: 70%;
+        border-radius: 5px 5px 0 0 ;
+        overflow: hidden;
+        cursor: pointer;
+        img{ 
+           transition: all 1s ease-in-out;
+        }
+    }
+    .item-info{
+        padding: 8px;
+        height: calc(30% - 40px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+       .title{
+           font-weight: 700;
+           cursor: pointer;
+           transition: all 1s ease-in-out;
+           &:hover{
+            color: #00b8ff;
+           }
+       }
+    }
+    &:hover{
+        .img{
+            img{
+              transform: scale(1.2);  
+            }
+        }
+    }
+}
+.foother{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+}
+.sh-4{
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+}
+.pagination {
+    align-items: center;
+    justify-content: center;
+}
+ul.pagination>li {
+    min-width: 30px;
+    min-height: 30px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 4px;
+    cursor: pointer;
+}   
+.p-active{
+    background-color: #ff8d1e !important;  
+    box-shadow: inset 0 0 11px rgba(0, 0, 0, 0.25);
+}
+
+
+//loading style
+.loader{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 16;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
